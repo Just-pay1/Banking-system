@@ -7,7 +7,7 @@
     "dev:hot": "nodemon --exec \"npm run dev\" --watch ./src -e ts",
     "lint": "npx eslint ./src",
     "lint:tests": "npx eslint ./spec",
-    "start": "NODE_ENV=production node -r ./preload.js ./dist",
+    "start": " tsc src/index.ts && node src/index.js",
     "test": "NODE_ENV=test npx ts-node ./spec",
     "test:hot": "nodemon --exec \"npm run test\" --watch ./src --watch ./spec -e ts"
   },
@@ -16,7 +16,7 @@
   },
   "dependencies": {
     "cookie-parser": "^1.4.7",
-    "dotenv": "^16.4.5",
+    "dotenv": "^16.4.7",
     "express": "^4.21.1",
     "express-async-errors": "^3.1.1",
     "helmet": "^8.0.0",
@@ -27,6 +27,7 @@
     "module-alias": "^2.2.3",
     "moment": "^2.30.1",
     "morgan": "^1.10.0",
+    "mysql2": "^3.11.5",
     "sequelize": "^6.37.5"
   },
   "devDependencies": {
@@ -41,6 +42,7 @@
     "@types/jsonfile": "^6.1.4",
     "@types/morgan": "^1.9.9",
     "@types/node": "^22.10.1",
+    "@types/sequelize": "^4.28.20",
     "@types/supertest": "^6.0.2",
     "eslint": "^8.57.1",
     "eslint-plugin-n": "^16.6.2",

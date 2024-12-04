@@ -1,3 +1,8 @@
 **/node_modules
 dist/
 **/**/*.log
+
+# Ignore environment variable files
+*.env
+enve/.env
+
