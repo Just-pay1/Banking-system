@@ -1,12 +1,9 @@
-import logger from 'jet-logger';
+import express from "express"
+import { sequelize, authenticateDatabase } from "./database/database";
+const app = express();
 
-import EnvVars from '@src/common/EnvVars';
-import server from './server';
+authenticateDatabase()
 
-
-// **** Run **** //
-
-const SERVER_START_MSG = ('Express server started on port: ' + 
-  EnvVars.Port.toString());
-
-server.listen(EnvVars.Port, () => logger.info(SERVER_START_MSG));
+app.listen(3000, () => {
+  console.log("listens on port 3000");
+})
