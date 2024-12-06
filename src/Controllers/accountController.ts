@@ -54,3 +54,31 @@ export const deleteAccount = async (req: Request, res: Response) => {
   }
 };
 
+// put request
+export const updateAccount = async (req: Request, res: Response) => {
+  try {
+    const { id } = req.params;
+    const { account_type, balance, status } = req.body;
+    const account = await Account.findOne({ where: { id: id } });
+    console.log(id, account_type, balance, status);
+
+    if (!account) {
+      res.status(404).json({ message: 'Account not found' });
+    }
+
+    else {
+      account.account_type = account_type || account.account_type;
+      account.balance = balance || account.balance;
+      account.status = status || account.status;
+
+      await account.save();
+      res.status(200).json({ account });
+    }
+  } catch (error) {
+    console.error('Error updating account:', error);
+    res.status(500).json({ error: 'Failed to update account' });
+  }
+
+};
+
+
