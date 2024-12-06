@@ -1,6 +1,5 @@
 import Joi from 'joi';
 
-// Define a validation schema
 export const createAccountSchema = Joi.object({
   user_id: Joi.string(),
   account_type: Joi.string().valid('merchant', 'user').required(),
