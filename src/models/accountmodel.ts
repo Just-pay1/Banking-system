@@ -24,7 +24,8 @@ Account.init(
     },
     user_id: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,  // temporary and will be changed to false
+      defaultValue: 'null'
     },
     account_type: {
       type: DataTypes.ENUM('merchant', 'user'),

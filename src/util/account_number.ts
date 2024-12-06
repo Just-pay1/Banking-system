@@ -13,4 +13,3 @@ export function generateEgyptianIBAN(): string {
   return `${countryCode}${checkDigits}${bankCode}${branchCode}${accountNumber}`;
 }
 
-console.log(generateEgyptianIBAN());
