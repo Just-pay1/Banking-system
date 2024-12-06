@@ -18,6 +18,7 @@
     "inserturlparams": "^2.0.4",
     "jet-logger": "^2.0.1",
     "jet-paths": "^1.0.9",
+    "joi": "^17.13.3",
     "jsonfile": "^6.1.0",
     "module-alias": "^2.2.3",
     "moment": "^2.30.1",

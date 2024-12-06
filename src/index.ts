@@ -1,13 +1,16 @@
 import express from "express"
-import { sequelize, authenticateDatabase } from "./database/database";
-import Account from "./models/accountmodel";
+import { authenticateDatabase } from "./database/database";
 import accountRoutes from "./routes/accountRoutes";
+import dotenv from "dotenv";
+dotenv.config();
+
+const port = process.env.PORT || 3000;
 
 const app = express();
 app.use(express.json());
-
 app.use("/api", accountRoutes);
 
-app.listen(3000, () => {
-  console.log("listens on port 3000");
+app.listen(process.env.Port, () => {
+  console.log(`Server is running on http://localhost:${process.env.PORT}`);
+  authenticateDatabase(); // check Db connection
 })
