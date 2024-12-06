@@ -1,7 +1,7 @@
 import { Model, DataTypes } from "sequelize";
-import sequelize from '../database/database';
+import { sequelize } from '../database/database';
 // import User from "./userModel";
-class Card extends Model{
+class Card extends Model {
     static validateAsync(body: any) {
         throw new Error('Method not implemented.');
     }
@@ -14,52 +14,42 @@ class Card extends Model{
 
     toJSON() {
         const attributes = Object.assign({}, this.get());
- 
+
         delete attributes.card_number; // Example of hiding the card_number field
         return attributes;
     }
 
-
-    static associate() {
-        Card.belongsTo(User, { foreignKey: 'user_id' });
-    }
 }
 
 Card.init({
     id: {
-        type : DataTypes.INTEGER,
-        autoIncrement : true,
-        primaryKey : true,
+        type: DataTypes.INTEGER,
+        autoIncrement: true,
+        primaryKey: true,
     },
     card_number: {
-        type : DataTypes.STRING,
-        allowNull : false,
+        type: DataTypes.STRING,
+        allowNull: false,
     },
     expirationDate: {
-        type : DataTypes.STRING,
-        allowNull : false,
+        type: DataTypes.STRING,
+        allowNull: false,
     },
     user_id: {
-        type : DataTypes.INTEGER,
-        references: {
-            model: User,
-            key: 'id',
-        },
-        onDelete: 'CASCADE',
-        onUpdate: 'CASCADE',
+        type: DataTypes.INTEGER,
     },
     active: {
-        type : DataTypes.BOOLEAN,
-        allowNull : false,
+        type: DataTypes.BOOLEAN,
+        allowNull: false,
         defaultValue: false,
     }
-    
-    },
+
+},
     {
         sequelize,
         modelName: 'Card',
         timestamps: true
-})
+    })
 
 
 export default Card;
