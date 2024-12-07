@@ -11,6 +11,6 @@ app.use(express.json());
 app.use("/api", accountRoutes);
 
 app.listen(process.env.Port, () => {
-  console.log(`Server is running on http://localhost:${process.env.PORT}`);
+  console.log(`Server is running on http://localhost:${port}`);
   authenticateDatabase(); // check Db connection
 })

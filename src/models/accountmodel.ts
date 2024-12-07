@@ -8,7 +8,7 @@ class Account extends Model {
   public account_type!: 'merchant' | 'user';
   public account_number!: string;
   public balance!: number;
-  public status!: 'active' | 'not';
+  public status!: 'active' | 'notActive';
 
   public readonly createdAt!: Date;
   public readonly updatedAt!: Date;
@@ -36,12 +36,12 @@ Account.init(
       allowNull: false,
     },
     balance: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.FLOAT,
       allowNull: false,
       defaultValue: 10000,
     },
     status: {
-      type: DataTypes.ENUM('active', 'not'),
+      type: DataTypes.ENUM('active', 'notActive'),
       allowNull: false,
       defaultValue: 'not',
     },
