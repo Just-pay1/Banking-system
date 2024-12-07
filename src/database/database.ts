@@ -1,3 +1,14 @@
+/* eslint-disable @stylistic/ts/semi */
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable @typescript-eslint/no-unnecessary-type-assertion */
+/* eslint-disable max-len */
+/* eslint-disable @typescript-eslint/no-non-null-assertion */
+/* eslint-disable n/no-process-env */
+/* eslint-disable indent */
+/* eslint-disable quotes */
+/* eslint-disable no-console */
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import { Sequelize } from 'sequelize';
 import dotenv from 'dotenv';
 

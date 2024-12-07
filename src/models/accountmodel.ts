@@ -1,4 +1,7 @@
-import { DataTypes, Model, Optional } from 'sequelize';
+/* eslint-disable @stylistic/ts/semi */
+/* eslint-disable comma-dangle */
+/* eslint-disable quotes */
+import { DataTypes, Model } from 'sequelize';
 import { sequelize } from "../database/database"
 
 // Account Model class

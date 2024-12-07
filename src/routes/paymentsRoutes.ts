@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/prefer-nullish-coalescing */
 /* eslint-disable comma-dangle */
 /* eslint-disable @typescript-eslint/no-unsafe-return */
 /* eslint-disable @typescript-eslint/explicit-member-accessibility */
@@ -13,21 +12,12 @@
 /* eslint-disable no-console */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
-import express from "express"
-import { sequelize, authenticateDatabase } from "./database/database";
-import dotenv from 'dotenv';
-import Account from "./models/accountmodel";
-import accountRoutes from "./routes/accountRoutes";
-import paymentsRoutes from './routes/paymentsRoutes';
+import express from 'express';
+import { executePayment } from '../Controllers/paymentsController';
+import { ValidatePayment } from '../middleware/validatePayment';
 
-dotenv.config();
-const app = express();
-app.use(express.json());
+const router = express.Router();
 
-app.use("/api", accountRoutes);
-app.use('/payments', paymentsRoutes);
+router.post('/execute', ValidatePayment, executePayment);
 
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
-});
+export default router;
